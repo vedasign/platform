@@ -17,17 +17,17 @@ export type OrganisationJoinEmailProps = {
 };
 
 export const OrganisationJoinEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
-  baseUrl = 'https://documenso.com',
+  assetBaseUrl = 'https://app.vedasign.uk',
+  baseUrl = 'https://vedasign.uk',
   memberName = 'John Doe',
-  memberEmail = 'johndoe@documenso.com',
+  memberEmail = 'johndoe@vedasign.uk',
   organisationName = 'Organisation Name',
   organisationUrl = 'demo',
 }: OrganisationJoinEmailProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
 
-  const previewText = msg`A member has joined your organisation on Documenso`;
+  const previewText = msg`A member has joined your organisation on VedaSign`;
 
   return (
     <Html>

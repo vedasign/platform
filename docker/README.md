@@ -1,6 +1,6 @@
-# Docker Setup for Documenso
+# Docker Setup for VedaSign
 
-For full instructions on running Documenso with Docker, see the official documentation:
+For full instructions on running VedaSign with Docker, see the official documentation:
 
 - [Docker Deployment](https://docs.documenso.com/docs/self-hosting/deployment/docker) — Standalone container with an external database
 - [Docker Compose Deployment](https://docs.documenso.com/docs/self-hosting/deployment/docker-compose) — Production setup with PostgreSQL included

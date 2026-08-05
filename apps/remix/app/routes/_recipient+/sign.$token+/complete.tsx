@@ -11,7 +11,6 @@ import { getRecipientSignatures } from '@documenso/lib/server-only/recipient/get
 import { getUserByEmail } from '@documenso/lib/server-only/user/get-user-by-email';
 import { isDocumentCompleted } from '@documenso/lib/utils/document';
 import { trpc } from '@documenso/trpc/react';
-import { DocumentShareButton } from '@documenso/ui/components/document/document-share-button';
 import { SigningCard3D } from '@documenso/ui/components/signing-card';
 import { cn } from '@documenso/ui/lib/utils';
 import { Badge } from '@documenso/ui/primitives/badge';
@@ -83,7 +82,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   const recipientName =
     recipient.name || fields.find((field) => field.type === FieldType.NAME)?.customText || recipient.email;
 
-  const canSignUp = !isExistingUser && isSignupEnabledForProvider('email');
+  const canSignUp = false; // Disabled: signers are customers of our customers, not our own signups
 
   const canRedirectToFolder = user && document.userId === user.id && document.folderId && document.team?.url;
 
@@ -224,7 +223,10 @@ export default function CompletedSigningPage({ loaderData }: Route.ComponentProp
             {match({ status: signingStatus, deletedAt: document.deletedAt })
               .with({ status: 'COMPLETED' }, () => (
                 <p className="mt-2.5 max-w-[60ch] text-center font-medium text-muted-foreground/60 text-sm md:text-base">
-                  <Trans>Everyone has signed! You will receive an email copy of the signed document.</Trans>
+                  <Trans>
+                    Everyone has signed! You will receive an email copy of the signed document. You may now close
+                    this page.
+                  </Trans>
                 </p>
               ))
               .with({ status: 'PROCESSING' }, () => (
@@ -249,11 +251,7 @@ export default function CompletedSigningPage({ loaderData }: Route.ComponentProp
               ))}
 
             <div className="mt-8 flex w-full max-w-xs flex-col items-stretch gap-4 md:w-auto md:max-w-none md:flex-row md:items-center">
-              <DocumentShareButton
-                documentId={document.id}
-                token={recipient.token}
-                className="w-full max-w-none md:flex-1"
-              />
+
 
               {isDocumentCompleted(document) && (
                 <EnvelopeDownloadDialog

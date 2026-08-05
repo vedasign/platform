@@ -14,8 +14,8 @@ export type TeamDeleteEmailProps = {
 };
 
 export const TeamDeleteEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
-  baseUrl = 'https://documenso.com',
+  assetBaseUrl = 'https://app.vedasign.uk',
+  baseUrl = 'https://vedasign.uk',
   teamUrl = 'demo',
 }: TeamDeleteEmailProps) => {
   const { _ } = useLingui();

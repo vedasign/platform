@@ -16,15 +16,15 @@ export const DOCUMENT_AUTH_TYPES: Record<string, DocumentAuthTypeData> = {
   },
   [DocumentAuth.PASSKEY]: {
     key: DocumentAuth.PASSKEY,
-    value: msg`Require passkey`,
+    value: msg`Require passkey — recipient must have a VedaSign account (for internal/employee signers only, not recommended for external clients)`,
   },
   [DocumentAuth.TWO_FACTOR_AUTH]: {
     key: DocumentAuth.TWO_FACTOR_AUTH,
-    value: msg`Require 2FA`,
+    value: msg`Require 2FA — recipient must have a VedaSign account (for internal/employee signers only, not recommended for external clients)`,
   },
   [DocumentAuth.PASSWORD]: {
     key: DocumentAuth.PASSWORD,
-    value: msg`Require password`,
+    value: msg`Require password — recipient must have a VedaSign account (for internal/employee signers only, not recommended for external clients)`,
   },
   [DocumentAuth.EXPLICIT_NONE]: {
     key: DocumentAuth.EXPLICIT_NONE,

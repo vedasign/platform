@@ -41,6 +41,11 @@ export const run = async ({ payload, io }: { payload: TSendDocumentCancelledEmai
           teamEmail: true,
           name: true,
           url: true,
+          organisation: {
+            select: {
+              name: true,
+            },
+          },
         },
       },
     },
@@ -55,7 +60,8 @@ export const run = async ({ payload, io }: { payload: TSendDocumentCancelledEmai
     meta: envelope.documentMeta,
   });
 
-  const { documentMeta, user: documentOwner } = envelope;
+  const { documentMeta, user: documentOwner, team } = envelope;
+  const organisationDisplayName = team?.organisation?.name || team?.name;
 
   // Check if document cancellation emails are enabled
   const isEmailEnabled = extractDerivedDocumentEmailSettings(documentMeta).documentDeleted;
@@ -79,7 +85,7 @@ export const run = async ({ payload, io }: { payload: TSendDocumentCancelledEmai
       recipientsToNotify.map(async (recipient) => {
         const template = createElement(DocumentCancelTemplate, {
           documentName: envelope.title,
-          inviterName: documentOwner.name || undefined,
+          inviterName: organisationDisplayName || documentOwner.name || undefined,
           inviterEmail: documentOwner.email,
           assetBaseUrl: NEXT_PUBLIC_WEBAPP_URL(),
           cancellationReason: cancellationReason || 'The document has been cancelled.',

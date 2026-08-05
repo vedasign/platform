@@ -19,7 +19,7 @@ export function DocumentRejectionConfirmedEmail({
   documentName,
   documentOwnerName,
   reason,
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: DocumentRejectionConfirmedEmailProps) {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -42,7 +42,7 @@ export function DocumentRejectionConfirmedEmail({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateDocumentRejectionConfirmed

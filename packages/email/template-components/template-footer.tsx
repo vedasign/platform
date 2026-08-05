@@ -15,11 +15,10 @@ export const TemplateFooter = ({ isDocument = true }: TemplateFooterProps) => {
       {isDocument && !branding.brandingHidePoweredBy && (
         <Text className="my-4 text-base text-slate-400">
           <Trans>
-            This document was sent using{' '}
-            <Link className="text-[#7AC455]" href="https://documen.so/mail-footer">
-              Documenso
+            Powered by{' '}
+            <Link className="text-[#C94F00]" href="https://vedasign.uk">
+              VedaSign
             </Link>
-            .
           </Trans>
         </Text>
       )}
@@ -39,9 +38,7 @@ export const TemplateFooter = ({ isDocument = true }: TemplateFooterProps) => {
 
       {!branding.brandingEnabled && (
         <Text className="my-8 text-slate-400 text-sm">
-          Documenso, Inc.
-          <br />
-          2261 Market Street, #5211, San Francisco, CA 94114, USA
+          VedaSign
         </Text>
       )}
     </Section>

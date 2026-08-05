@@ -31,7 +31,11 @@ import { useOptionalCurrentTeam } from '~/providers/team';
 export const OrgMenuSwitcher = () => {
   const { _ } = useLingui();
 
-  const { user, organisations } = useSession();
+  const { user, organisations: allOrganisations } = useSession();
+  const isOrgOwner = allOrganisations.some((org) => org.ownerUserId === user.id);
+  const organisations = isOrgOwner
+    ? allOrganisations 
+    : allOrganisations.filter((org) => org.type !== 'PERSONAL');
 
   const { pathname } = useLocation();
 
@@ -171,12 +175,7 @@ export const OrgMenuSwitcher = () => {
                 </div>
               ))}
 
-              <Button variant="ghost" className="w-full justify-start" asChild>
-                <Link to="/settings/organisations?action=add-organisation">
-                  <Plus className="mr-2 h-4 w-4" />
-                  <Trans>Create Organisation</Trans>
-                </Link>
-              </Button>
+              {/* Create Organisation disabled - each paying customer gets one org automatically at signup */}
             </div>
           </div>
 
@@ -229,7 +228,7 @@ export const OrgMenuSwitcher = () => {
                   </div>
                 )}
 
-                {displayedOrg && (
+                {displayedOrg && isOrgOwner && (
                   <Button variant="ghost" className="w-full justify-start" asChild>
                     <Link to={`/o/${displayedOrg.url}/settings/teams?action=add-team`}>
                       <Plus className="mr-2 h-4 w-4" />

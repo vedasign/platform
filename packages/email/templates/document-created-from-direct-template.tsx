@@ -22,7 +22,7 @@ export const DocumentCreatedFromDirectTemplateEmailTemplate = ({
   recipientRole = RecipientRole.SIGNER,
   documentLink = 'http://localhost:3000',
   documentName = 'Open Source Pledge.pdf',
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: DocumentCompletedEmailTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -47,7 +47,7 @@ export const DocumentCreatedFromDirectTemplateEmailTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateDocumentImage className="mt-6" assetBaseUrl={assetBaseUrl} />
@@ -65,7 +65,7 @@ export const DocumentCreatedFromDirectTemplateEmailTemplate = ({
 
                 <Section className="my-6 text-center">
                   <Button
-                    className="inline-flex items-center justify-center rounded-lg bg-documenso-500 px-6 py-3 text-center font-medium text-black text-sm no-underline"
+                    className="inline-flex items-center justify-center rounded-lg bg-[#C94F00] px-6 py-3 text-center font-medium text-black text-sm no-underline"
                     href={documentLink}
                   >
                     <Trans>View document</Trans>

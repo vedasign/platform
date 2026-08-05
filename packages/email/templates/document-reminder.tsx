@@ -21,8 +21,8 @@ export type DocumentReminderEmailTemplateProps = {
 export const DocumentReminderEmailTemplate = ({
   recipientName = 'John Doe',
   documentName = 'Open Source Pledge.pdf',
-  signDocumentLink = 'https://documenso.com',
-  assetBaseUrl = 'http://localhost:3002',
+  signDocumentLink = 'https://vedasign.uk',
+  assetBaseUrl = 'https://app.vedasign.uk',
   customBody,
   role = RecipientRole.SIGNER,
 }: DocumentReminderEmailTemplateProps) => {
@@ -49,7 +49,7 @@ export const DocumentReminderEmailTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateDocumentReminder

@@ -3,10 +3,8 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { RecipientRole } from '@prisma/client';
 import { match } from 'ts-pattern';
-
 import { Button, Section, Text } from '../components';
 import { TemplateDocumentImage } from './template-document-image';
-
 export interface TemplateDocumentReminderProps {
   recipientName: string;
   documentName: string;
@@ -14,7 +12,6 @@ export interface TemplateDocumentReminderProps {
   assetBaseUrl: string;
   role: RecipientRole;
 }
-
 export const TemplateDocumentReminder = ({
   recipientName,
   documentName,
@@ -23,13 +20,10 @@ export const TemplateDocumentReminder = ({
   role,
 }: TemplateDocumentReminderProps) => {
   const { _ } = useLingui();
-
   const { actionVerb } = RECIPIENT_ROLES_DESCRIPTION[role];
-
   return (
     <>
       <TemplateDocumentImage className="mt-6" assetBaseUrl={assetBaseUrl} />
-
       <Section>
         <Text className="mx-auto mb-0 max-w-[80%] text-center font-semibold text-lg text-primary">
           <Trans>
@@ -37,11 +31,9 @@ export const TemplateDocumentReminder = ({
             <br />"{documentName}"
           </Trans>
         </Text>
-
         <Text className="my-1 text-center text-base text-slate-400">
           <Trans>Hi {recipientName},</Trans>
         </Text>
-
         <Text className="my-1 text-center text-base text-slate-400">
           {match(role)
             .with(RecipientRole.SIGNER, () => <Trans>Continue by signing the document.</Trans>)
@@ -51,10 +43,12 @@ export const TemplateDocumentReminder = ({
             .with(RecipientRole.ASSISTANT, () => <Trans>Continue by assisting with the document.</Trans>)
             .exhaustive()}
         </Text>
-
+        <Text className="mt-1 mb-0 text-center text-slate-400 text-xs">
+          <Trans>No account or sign up required — just click the button below.</Trans>
+        </Text>
         <Section className="mt-8 mb-6 text-center">
           <Button
-            className="inline-flex items-center justify-center rounded-lg bg-documenso-500 px-6 py-3 text-center font-medium text-black text-sm no-underline"
+            className="inline-flex items-center justify-center rounded-lg bg-[#C94F00] px-6 py-3 text-center font-medium text-black text-sm no-underline"
             href={signDocumentLink}
           >
             {match(role)
@@ -70,5 +64,4 @@ export const TemplateDocumentReminder = ({
     </>
   );
 };
-
 export default TemplateDocumentReminder;

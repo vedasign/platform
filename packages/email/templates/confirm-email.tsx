@@ -9,7 +9,7 @@ import { TemplateFooter } from '../template-components/template-footer';
 
 export const ConfirmEmailTemplate = ({
   confirmationLink,
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: TemplateConfirmationEmailProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -31,7 +31,7 @@ export const ConfirmEmailTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateConfirmationEmail confirmationLink={confirmationLink} assetBaseUrl={assetBaseUrl} />

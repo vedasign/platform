@@ -76,8 +76,9 @@ export const extractLocaleData = ({ headers }: ExtractLocaleDataOptions): I18nLo
     }
   });
 
+  const defaultLang = (env('NEXT_PUBLIC_DEFAULT_LANGUAGE') as SupportedLanguageCodes) || APP_I18N_OPTIONS.sourceLang;
   return {
-    lang: languages[0] || APP_I18N_OPTIONS.sourceLang,
+    lang: languages[0] || defaultLang,
     locales: headerLocales,
   };
 };

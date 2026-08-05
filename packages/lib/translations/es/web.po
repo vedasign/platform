@@ -643,7 +643,7 @@ msgstr "<0>{organisationName}</0> ha solicitado crear una cuenta en tu nombre."
 
 #: packages/email/templates/organisation-account-link-confirmation.tsx
 msgid "<0>{organisationName}</0> has requested to link your current Documenso account to their organisation."
-msgstr "<0>{organisationName}</0> ha solicitado vincular tu cuenta actual de Documenso a su organización."
+msgstr "<0>{organisationName}</0> ha solicitado vincular tu cuenta actual de VedaSign a su organización."
 
 #: apps/remix/app/components/general/document-signing/document-signing-page-view-v1.tsx
 msgid "<0>{senderName} {senderEmail}</0> has invited you to approve this document"
@@ -683,7 +683,7 @@ msgstr "<0>{senderName} {senderEmail}</0>, en nombre de \"{0}\", te ha invitado 
 
 #: packages/email/templates/confirm-team-email.tsx
 msgid "<0>{teamName}</0> has requested to use your email address for their team on Documenso."
-msgstr "<0>{teamName}</0> ha solicitado usar tu dirección de correo electrónico para su equipo en Documenso."
+msgstr "<0>{teamName}</0> ha solicitado usar tu dirección de correo electrónico para su equipo en VedaSign."
 
 #: apps/remix/app/routes/_unauthenticated+/organisation.sso.confirmation.$token.tsx
 msgid "<0>Account management:</0> Modify your account settings, permissions, and preferences"
@@ -942,7 +942,7 @@ msgstr "Un medio para imprimir o descargar documentos para sus registros"
 
 #: packages/email/templates/organisation-join.tsx
 msgid "A member has joined your organisation on Documenso"
-msgstr "Un miembro se ha unido a tu organización en Documenso"
+msgstr "Un miembro se ha unido a tu organización en VedaSign"
 
 #: packages/lib/jobs/definitions/emails/send-organisation-member-left-email.handler.ts
 msgid "A member has left your organisation"
@@ -954,7 +954,7 @@ msgstr "Un miembro ha dejado tu organización {organisationName}"
 
 #: packages/email/templates/organisation-leave.tsx
 msgid "A member has left your organisation on Documenso"
-msgstr "Un miembro ha dejado tu organización en Documenso"
+msgstr "Un miembro ha dejado tu organización en VedaSign"
 
 #: packages/lib/jobs/definitions/emails/send-organisation-member-joined-email.handler.ts
 msgid "A new member has joined your organisation"
@@ -994,17 +994,17 @@ msgstr "Se ha hecho una solicitud para crear una cuenta para ti"
 
 #: packages/email/templates/organisation-account-link-confirmation.tsx
 msgid "A request has been made to link your Documenso account"
-msgstr "Se ha hecho una solicitud para vincular tu cuenta de Documenso"
+msgstr "Se ha hecho una solicitud para vincular tu cuenta de VedaSign"
 
 #. placeholder {0}: team.name
 #: packages/lib/server-only/team/create-team-email-verification.ts
 msgid "A request to use your email has been initiated by {0} on Documenso"
-msgstr "Se ha iniciado una solicitud para usar tu correo electrónico por {0} en Documenso"
+msgstr "Se ha iniciado una solicitud para usar tu correo electrónico por {0} en VedaSign"
 
 #: apps/remix/app/components/dialogs/webhook-create-dialog.tsx
 #: apps/remix/app/components/dialogs/webhook-edit-dialog.tsx
 msgid "A secret that will be sent to your URL so you can verify that the request has been sent by Documenso."
-msgstr "Un secreto que se enviará a tu URL para que puedas verificar que la solicitud ha sido enviada por Documenso."
+msgstr "Un secreto que se enviará a tu URL para que puedas verificar que la solicitud ha sido enviada por VedaSign."
 
 #: apps/remix/app/routes/_unauthenticated+/articles.signature-disclosure.tsx
 msgid "A stable internet connection"
@@ -1052,11 +1052,11 @@ msgstr "Aceptar y Vincular Cuenta"
 
 #: packages/email/templates/organisation-invite.tsx
 msgid "Accept invitation to join an organisation on Documenso"
-msgstr "Aceptar invitación para unirse a una organización en Documenso"
+msgstr "Aceptar invitación para unirse a una organización en VedaSign"
 
 #: packages/email/templates/confirm-team-email.tsx
 msgid "Accept team email request for {teamName} on Documenso"
-msgstr "Aceptar la solicitud de correo electrónico del equipo para {teamName} en Documenso"
+msgstr "Aceptar la solicitud de correo electrónico del equipo para {teamName} en VedaSign"
 
 #: apps/remix/app/routes/_unauthenticated+/articles.signature-disclosure.tsx
 msgid "Acceptance and Consent"
@@ -13187,7 +13187,7 @@ msgstr "Has sido invitado por <0>{0}</0> para unirte a su organización."
 #. placeholder {0}: organisation.name
 #: packages/lib/server-only/organisation/create-organisation-member-invites.ts
 msgid "You have been invited to join {0} on Documenso"
-msgstr "Te han invitado a unirte a {0} en Documenso"
+msgstr "Te han invitado a unirte a {0} en VedaSign"
 
 #: packages/email/templates/organisation-invite.tsx
 msgid "You have been invited to join the following organisation"
@@ -13921,3 +13921,33 @@ msgstr "Su código de verificación:"
 #: apps/remix/app/routes/_authenticated+/o.$orgUrl.settings.sso.tsx
 msgid "your-domain.com another-domain.com"
 msgstr "su-dominio.com otro-dominio.com"
+
+msgid "No account or sign up required — just click the button below."
+msgstr "No necesitas cuenta ni registro — solo haz clic en el botón de abajo."
+
+msgid "Hi {userName}, you need to enter a verification code to complete the document \"{documentTitle}\"."
+msgstr "Hola {userName}, necesitas introducir un código de verificación para completar el documento \"{documentTitle}\"."
+
+msgid "Reminder: Please {_(actionVerb).toLowerCase()} your document"
+msgstr "Recordatorio: Por favor {_(actionVerb).toLowerCase()} tu documento"
+
+msgid "Signing window expired for \"{displayName}\" on \"{documentName}\""
+msgstr "El período de firma ha expirado para \"{displayName}\" en \"{documentName}\""
+
+msgid "The signing window for {displayName} on document \"{documentName}\" has expired. You can resend the document"
+msgstr "El período de firma para {displayName} en el documento \"{documentName}\" ha expirado. Puedes reenviar el documento"
+
+msgid "{recipientReference} has signed \"{documentName}\""
+msgstr "{recipientReference} ha firmado \"{documentName}\""
+
+msgid "{signerName} has rejected the document \"{documentName}\"."
+msgstr "{signerName} ha rechazado el documento \"{documentName}\"."
+
+msgid "Join {organisationName} on VedaSign"
+msgstr "Únete a {organisationName} en VedaSign"
+
+msgid "{organisationName} has requested to link your current VedaSign account to their organisation."
+msgstr "{organisationName} ha solicitado vincular tu cuenta actual de VedaSign a su organización."
+
+msgid "You can unlink your account at any time in your security settings on VedaSign {0}"
+msgstr "Puedes desvincular tu cuenta en cualquier momento en la configuración de seguridad de VedaSign {0}"

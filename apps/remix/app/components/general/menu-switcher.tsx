@@ -24,7 +24,7 @@ import { Link } from 'react-router';
 export const MenuSwitcher = () => {
   const { _ } = useLingui();
 
-  const { user } = useSession();
+  const { user, organisations } = useSession();
 
   const [languageSwitcherOpen, setLanguageSwitcherOpen] = useState(false);
 
@@ -58,12 +58,6 @@ export const MenuSwitcher = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className={cn('z-[60] ml-6 w-full min-w-[12rem] md:ml-0')} align="end" forceMount>
-        <DropdownMenuItem className="px-4 py-2 text-muted-foreground" asChild>
-          <Link to="/settings/organisations?action=add-organisation" className="flex items-center justify-between">
-            <Trans>Create Organisation</Trans>
-            <Plus className="ml-2 h-4 w-4" />
-          </Link>
-        </DropdownMenuItem>
         <DropdownMenuSeparator />
 
         {isUserAdmin && (

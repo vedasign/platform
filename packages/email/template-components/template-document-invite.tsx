@@ -51,22 +51,15 @@ export const TemplateDocumentInvite = ({
             .with(
               {
                 organisationType: OrganisationType.ORGANISATION,
-                includeSenderDetails: true,
                 teamName: P.string,
               },
               () => (
                 <Trans>
-                  {inviterName} on behalf of "{teamName}" has invited you to {_(actionVerb).toLowerCase()}
+                  {inviterName} has invited you to {_(actionVerb).toLowerCase()}
                   <br />"{documentName}"
                 </Trans>
               ),
             )
-            .with({ organisationType: OrganisationType.ORGANISATION, teamName: P.string }, () => (
-              <Trans>
-                {teamName} has invited you to {_(actionVerb).toLowerCase()}
-                <br />"{documentName}"
-              </Trans>
-            ))
             .otherwise(() => (
               <Trans>
                 {inviterName} has invited you to {_(actionVerb).toLowerCase()}
@@ -85,9 +78,13 @@ export const TemplateDocumentInvite = ({
             .exhaustive()}
         </Text>
 
+        <Text className="mt-1 mb-0 text-center text-slate-400 text-xs">
+          <Trans>No account or sign up required — just click the button below.</Trans>
+        </Text>
+
         <Section className="mt-8 mb-6 text-center">
           <Button
-            className="inline-flex items-center justify-center rounded-lg bg-documenso-500 px-6 py-3 text-center font-medium text-black text-sbase no-underline"
+            className="inline-flex items-center justify-center rounded-lg bg-[#C94F00] px-6 py-3 text-center font-medium text-black text-sbase no-underline"
             href={signDocumentLink}
           >
             {match(role)

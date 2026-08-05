@@ -1,39 +1,16 @@
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
-import { Button } from '@documenso/ui/primitives/button';
 import { msg } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
-import { BookIcon, HelpCircleIcon, Link2Icon } from 'lucide-react';
-import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { BookIcon, HelpCircleIcon, MailIcon } from 'lucide-react';
+import { Link } from 'react-router';
 
-import { SupportTicketForm } from '~/components/forms/support-ticket-form';
 import { appMetaTags } from '~/utils/meta';
+import { SUPPORT_EMAIL } from '@documenso/lib/constants/app';
 
 export function meta() {
   return appMetaTags(msg`Support`);
 }
 
 export default function SupportPage() {
-  const [showForm, setShowForm] = useState(false);
-  const { user } = useSession();
-  const organisation = useCurrentOrganisation();
-
-  const [searchParams] = useSearchParams();
-
-  const teamId = searchParams.get('team');
-
-  const subscriptionStatus = organisation.subscription?.status;
-
-  const handleSuccess = () => {
-    setShowForm(false);
-  };
-
-  const handleCloseForm = () => {
-    setShowForm(false);
-  };
-
   return (
     <div className="mx-auto w-full max-w-screen-xl px-4 md:px-8">
       <div className="mb-8">
@@ -43,7 +20,7 @@ export default function SupportPage() {
         </h1>
 
         <p className="mt-2 text-muted-foreground">
-          <Trans>Your current plan includes the following support channels:</Trans>
+          <Trans>We're here to help. Choose a support channel below:</Trans>
         </p>
 
         <div className="mt-6 flex flex-col gap-4">
@@ -51,70 +28,33 @@ export default function SupportPage() {
             <h2 className="flex items-center gap-2 font-bold text-lg">
               <BookIcon className="h-5 w-5 text-muted-foreground" />
               <Link
-                to="https://docs.documenso.com"
+                to="https://vedasign.uk/help"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                <Trans>Documentation</Trans>
+                <Trans>Help Centre</Trans>
               </Link>
             </h2>
             <p className="mt-1 text-muted-foreground">
-              <Trans>Read our documentation to get started with Documenso.</Trans>
+              <Trans>Visit our help centre for guides and tutorials on using VedaSign.</Trans>
             </p>
           </div>
+
           <div className="rounded-lg border p-4">
             <h2 className="flex items-center gap-2 font-bold text-lg">
-              <Link2Icon className="h-5 w-5 text-muted-foreground" />
+              <MailIcon className="h-5 w-5 text-muted-foreground" />
               <Link
-                to="https://documen.so/discord"
-                target="_blank"
-                rel="noopener noreferrer"
+                to={`mailto:${SUPPORT_EMAIL}`}
                 className="hover:underline"
               >
-                <Trans>Discord</Trans>
+                <Trans>Email Support</Trans>
               </Link>
             </h2>
             <p className="mt-1 text-muted-foreground">
-              <Trans>
-                Join our community on{' '}
-                <Link
-                  to="https://documen.so/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  Discord
-                </Link>{' '}
-                for community support and discussion.
-              </Trans>
+              <Trans>Email us at {SUPPORT_EMAIL} and we'll get back to you as soon as possible.</Trans>
             </p>
           </div>
-          {organisation && IS_BILLING_ENABLED() && subscriptionStatus && (
-            <div className="rounded-lg border p-4">
-              <h2 className="flex items-center gap-2 font-bold text-lg">
-                <Link2Icon className="h-5 w-5 text-muted-foreground" />
-                <Trans>Contact us</Trans>
-              </h2>
-              <p className="mt-1 text-muted-foreground">
-                <Trans>We'll get back to you as soon as possible via email.</Trans>
-              </p>
-              <div className="mt-4">
-                {!showForm ? (
-                  <Button variant="outline" size="sm" onClick={() => setShowForm(true)}>
-                    <Trans>Create a support ticket</Trans>
-                  </Button>
-                ) : (
-                  <SupportTicketForm
-                    organisationId={organisation.id}
-                    teamId={teamId}
-                    onSuccess={handleSuccess}
-                    onClose={handleCloseForm}
-                  />
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>

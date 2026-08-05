@@ -11,7 +11,7 @@ export type DocumentPendingEmailTemplateProps = Partial<TemplateDocumentPendingP
 
 export const DocumentPendingEmailTemplate = ({
   documentName = 'Open Source Pledge.pdf',
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: DocumentPendingEmailTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -34,7 +34,7 @@ export const DocumentPendingEmailTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateDocumentPending documentName={documentName} assetBaseUrl={assetBaseUrl} />

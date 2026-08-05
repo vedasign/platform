@@ -13,8 +13,8 @@ export const RecipientExpiredTemplate = ({
   documentName = 'Open Source Pledge.pdf',
   recipientName = 'John Doe',
   recipientEmail = 'john@example.com',
-  documentLink = 'https://documenso.com',
-  assetBaseUrl = 'http://localhost:3002',
+  documentLink = 'https://vedasign.uk',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: RecipientExpiredEmailTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -37,7 +37,7 @@ export const RecipientExpiredTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateRecipientExpired

@@ -10,8 +10,8 @@ import { TemplateForgotPassword } from '../template-components/template-forgot-p
 export type ForgotPasswordTemplateProps = Partial<TemplateForgotPasswordProps>;
 
 export const ForgotPasswordTemplate = ({
-  resetPasswordLink = 'https://documenso.com',
-  assetBaseUrl = 'http://localhost:3002',
+  resetPasswordLink = 'https://vedasign.uk',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: ForgotPasswordTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -34,7 +34,7 @@ export const ForgotPasswordTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateForgotPassword resetPasswordLink={resetPasswordLink} assetBaseUrl={assetBaseUrl} />

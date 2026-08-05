@@ -17,16 +17,16 @@ export type TeamEmailRemovedTemplateProps = {
 };
 
 export const TeamEmailRemovedTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
-  baseUrl = 'https://documenso.com',
-  teamEmail = 'example@documenso.com',
+  assetBaseUrl = 'https://app.vedasign.uk',
+  baseUrl = 'https://vedasign.uk',
+  teamEmail = 'example@vedasign.uk',
   teamName = 'Team Name',
   teamUrl = 'demo',
 }: TeamEmailRemovedTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
 
-  const previewText = msg`Team email removed for ${teamName} on Documenso`;
+  const previewText = msg`Team email removed for ${teamName} on VedaSign`;
 
   return (
     <Html>

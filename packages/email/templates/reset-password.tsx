@@ -12,8 +12,8 @@ export type ResetPasswordTemplateProps = Partial<TemplateResetPasswordProps>;
 
 export const ResetPasswordTemplate = ({
   userName = 'Lucas Smith',
-  userEmail = 'lucas@documenso.com',
-  assetBaseUrl = 'http://localhost:3002',
+  userEmail = 'lucas@vedasign.uk',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: ResetPasswordTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -36,7 +36,7 @@ export const ResetPasswordTemplate = ({
               {branding.brandingEnabled && branding.brandingLogo ? (
                 <Img src={branding.brandingLogo} alt="Branding Logo" className="mb-4 h-6" />
               ) : (
-                <Img src={getAssetUrl('/static/logo.png')} alt="Documenso Logo" className="mb-4 h-6" />
+                <Img src={getAssetUrl('/static/logo.png')} alt="VedaSign Logo" className="mb-4 h-6" />
               )}
 
               <TemplateResetPassword userName={userName} userEmail={userEmail} assetBaseUrl={assetBaseUrl} />
@@ -60,7 +60,7 @@ export const ResetPasswordTemplate = ({
               <Text className="mt-2 text-base text-slate-400">
                 <Trans>
                   Didn't request a password change? We are here to help you secure your account, just{' '}
-                  <Link className="font-normal text-documenso-700" href="mailto:hi@documenso.com">
+                  <Link className="font-normal text-[#C94F00]" href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@vedasign.uk"}`}>
                     contact us
                   </Link>
                   .

@@ -58,6 +58,11 @@ export const run = async ({ payload, io }: { payload: TSendSigningEmailJobDefini
           select: {
             teamEmail: true,
             name: true,
+            organisation: {
+              select: {
+                name: true,
+              },
+            },
           },
         },
       },
@@ -122,16 +127,16 @@ export const run = async ({ payload, io }: { payload: TSendSigningEmailJobDefini
   }
 
   if (organisationType === OrganisationType.ORGANISATION) {
-    emailSubject = i18n._(msg`${team.name} invited you to ${recipientActionVerb} a document`);
+    const organisationName = team.organisation?.name || team.name;
+    const inviterName = user.name || '';
+    const displayName = inviterName ? `${inviterName} from ${organisationName}` : organisationName;
+
+    emailSubject = emailLanguage === 'es' ? `${organisationName} te ha invitado a firmar un documento` : i18n._(msg`${organisationName} invited you to ${recipientActionVerb} a document`);
     emailMessage = customEmail?.message ?? '';
 
     if (!emailMessage) {
-      const inviterName = user.name || '';
-
       emailMessage = i18n._(
-        settings.includeSenderDetails
-          ? msg`${inviterName} on behalf of "${team.name}" has invited you to ${recipientActionVerb} the document "${envelope.title}".`
-          : msg`${team.name} has invited you to ${recipientActionVerb} the document "${envelope.title}".`,
+        msg`${displayName} has invited you to ${recipientActionVerb} the document "${envelope.title}".`,
       );
     }
   }
@@ -145,6 +150,9 @@ export const run = async ({ payload, io }: { payload: TSendSigningEmailJobDefini
   const assetBaseUrl = NEXT_PUBLIC_WEBAPP_URL() || 'http://localhost:3000';
   const signDocumentLink = `${NEXT_PUBLIC_WEBAPP_URL()}/sign/${recipient.token}`;
 
+  const organisationDisplayName =
+    organisationType === OrganisationType.ORGANISATION ? team.organisation?.name || team.name : undefined;
+
   const template = createElement(DocumentInviteEmailTemplate, {
     documentName: envelope.title,
     inviterName: user.name || undefined,
@@ -152,11 +160,13 @@ export const run = async ({ payload, io }: { payload: TSendSigningEmailJobDefini
       organisationType === OrganisationType.ORGANISATION ? team?.teamEmail?.email || user.email : user.email,
     assetBaseUrl,
     signDocumentLink,
-    customBody: renderCustomEmailTemplate(emailMessage, customEmailTemplate),
+    customBody: customEmail?.message
+      ? renderCustomEmailTemplate(customEmail.message, customEmailTemplate)
+      : undefined,
     role: recipient.role,
     selfSigner,
     organisationType,
-    teamName: team?.name,
+    teamName: organisationDisplayName,
     teamEmail: team?.teamEmail?.email,
     includeSenderDetails: settings.includeSenderDetails,
   });

@@ -18,7 +18,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
   type = 'link',
   confirmationLink = '<CONFIRMATION_LINK>',
   organisationName = '<ORGANISATION_NAME>',
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
 }: OrganisationAccountLinkConfirmationTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();
@@ -26,7 +26,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
   const previewText =
     type === 'create'
       ? msg`A request has been made to create an account for you`
-      : msg`A request has been made to link your Documenso account`;
+      : msg`A request has been made to link your VedaSign account`;
 
   return (
     <Html>
@@ -50,7 +50,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
                 {type === 'create' ? (
                   <Trans>Account creation request</Trans>
                 ) : (
-                  <Trans>Link your Documenso account</Trans>
+                  <Trans>Link your VedaSign account</Trans>
                 )}
               </Text>
 
@@ -62,7 +62,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
                   </Trans>
                 ) : (
                   <Trans>
-                    <span className="font-bold">{organisationName}</span> has requested to link your current Documenso
+                    <span className="font-bold">{organisationName}</span> has requested to link your current VedaSign
                     account to their organisation.
                   </Trans>
                 )}
@@ -91,7 +91,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
 
                 <Text className="mt-2 text-sm">
                   <Trans>
-                    You can unlink your account at any time in your security settings on Documenso{' '}
+                    You can unlink your account at any time in your security settings on VedaSign{' '}
                     <Link href={`${assetBaseUrl}/settings/security/linked-accounts`}>here.</Link>
                   </Trans>
                 </Text>
@@ -99,7 +99,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
 
               <Section className="mt-8 mb-6 text-center">
                 <Button
-                  className="inline-flex items-center justify-center rounded-lg bg-documenso-500 px-6 py-3 text-center font-medium text-black text-sm no-underline"
+                  className="inline-flex items-center justify-center rounded-lg bg-[#C94F00] px-6 py-3 text-center font-medium text-black text-sm no-underline"
                   href={confirmationLink}
                 >
                   <Trans>Review request</Trans>

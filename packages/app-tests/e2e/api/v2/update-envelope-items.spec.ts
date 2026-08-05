@@ -64,7 +64,7 @@ const getEnvelope = async (request: APIRequestContext, authToken: string, envelo
  * signature field and distributing.
  */
 const distributeEnvelope = async (request: APIRequestContext, authToken: string, envelopeId: string) => {
-  const recipientEmail = `signer-${Date.now()}@test.documenso.com`;
+  const recipientEmail = `signer-${Date.now()}@test.vedasign.uk`;
 
   // Create a SIGNER recipient.
   const recipientsRes = await request.post(`${baseUrl}/envelope/recipient/create-many`, {

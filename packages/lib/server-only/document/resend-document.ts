@@ -66,6 +66,11 @@ export const resendDocument = async ({ id, userId, recipients, teamId, requestMe
         select: {
           teamEmail: true,
           name: true,
+          organisation: {
+            select: {
+              name: true,
+            },
+          },
         },
       },
     },
@@ -154,12 +159,14 @@ export const resendDocument = async ({ id, userId, recipients, teamId, requestMe
         emailSubject = i18n._(msg`Reminder: Please ${recipientActionVerb} your document`);
       }
 
+      const organisationDisplayName = envelope.team?.organisation?.name || envelope.team?.name;
+
       if (organisationType === OrganisationType.ORGANISATION) {
-        emailSubject = i18n._(msg`Reminder: ${envelope.team.name} invited you to ${recipientActionVerb} a document`);
+        emailSubject = emailLanguage === 'es' ? `Recordatorio: ${organisationDisplayName} te ha invitado a firmar un documento` : i18n._(msg`Reminder: ${organisationDisplayName} invited you to ${recipientActionVerb} a document`);
         emailMessage =
           envelope.documentMeta.message ||
           i18n._(
-            msg`${user.name || user.email} on behalf of "${envelope.team.name}" has invited you to ${recipientActionVerb} the document "${envelope.title}".`,
+            msg`${organisationDisplayName} has invited you to ${recipientActionVerb} the document "${envelope.title}".`,
           );
       }
 
@@ -174,7 +181,7 @@ export const resendDocument = async ({ id, userId, recipients, teamId, requestMe
 
       const template = createElement(DocumentInviteEmailTemplate, {
         documentName: envelope.title,
-        inviterName: user.name || undefined,
+        inviterName: organisationDisplayName || user.name || undefined,
         inviterEmail:
           organisationType === OrganisationType.ORGANISATION
             ? envelope.team?.teamEmail?.email || user.email

@@ -138,7 +138,7 @@ export const sendTeamDeleteEmail = async ({ email, team, organisationId }: SendT
   await mailer.sendMail({
     to: email,
     from: senderEmail,
-    subject: i18n._(msg`Team "${team.name}" has been deleted on Documenso`),
+    subject: emailLanguage === 'es' ? `El equipo "${team.name}" ha sido eliminado en VedaSign` : i18n._(msg`Team "${team.name}" has been deleted on VedaSign`),
     html,
     text,
   });

@@ -16,7 +16,7 @@ export default function SignatureDisclosure() {
         </h2>
         <p>
           <Trans>
-            Thank you for using Documenso to perform your electronic document signing. The purpose of this disclosure is
+            Thank you for using VedaSign to perform your electronic document signing. The purpose of this disclosure is
             to inform you about the process, legality, and your rights regarding the use of electronic signatures on our
             platform. By opting to use an electronic signature, you are agreeing to the terms and conditions outlined
             below.
@@ -29,8 +29,11 @@ export default function SignatureDisclosure() {
         <p>
           <Trans>
             When you use our platform to affix your electronic signature to documents, you are consenting to do so under
-            the Electronic Signatures in Global and National Commerce Act (E-Sign Act) and other applicable laws. This
-            action indicates your agreement to use electronic means to sign documents and receive notifications.
+            applicable electronic signature laws in your jurisdiction, including but not limited to the UK Electronic
+            Communications Act 2000 and UK eIDAS Regulations, the US Electronic Signatures in Global and National
+            Commerce Act (E-Sign Act), the EU eIDAS Regulation, and equivalent legislation based on the UNCITRAL Model
+            Law on Electronic Signatures adopted in many other countries. This action indicates your agreement to use
+            electronic means to sign documents and receive notifications.
           </Trans>
         </p>
 
@@ -127,7 +130,7 @@ export default function SignatureDisclosure() {
         </h2>
         <p>
           <Trans>
-            By proceeding to use the electronic signature service provided by Documenso, you affirm that you have read
+            By proceeding to use the electronic signature service provided by VedaSign, you affirm that you have read
             and understood this disclosure. You agree to all terms and conditions related to the use of electronic
             signatures and electronic transactions as outlined herein.
           </Trans>

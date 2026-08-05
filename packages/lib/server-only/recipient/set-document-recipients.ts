@@ -309,7 +309,7 @@ export const setDocumentRecipients = async ({
           },
           from: senderEmail,
           replyTo: replyToEmail,
-          subject: i18n._(msg`You have been removed from a document`),
+          subject: emailLanguage === 'es' ? 'Has sido eliminado de un documento' : i18n._(msg`You have been removed from a document`),
           html,
           text,
         });

@@ -41,7 +41,6 @@ export const ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP = {
  */
 export const ORGANISATION_MEMBER_ROLE_HIERARCHY = {
   [OrganisationMemberRole.ADMIN]: [
-    OrganisationMemberRole.ADMIN,
     OrganisationMemberRole.MANAGER,
     OrganisationMemberRole.MEMBER,
   ],

@@ -17,7 +17,7 @@ export type OrganisationDeleteEmailProps = {
 };
 
 export const OrganisationDeleteEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://app.vedasign.uk',
   organisationName = 'Organisation Name Placeholder',
   deletedByAdmin = false,
 }: OrganisationDeleteEmailProps) => {

@@ -10,14 +10,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://docs.documenso.com'),
+  metadataBase: new URL('https://docs.vedasign.uk'),
   title: {
-    template: '%s | Documenso Docs',
-    default: 'Documenso Docs',
+    template: '%s | VedaSign Docs',
+    default: 'VedaSign Docs',
   },
-  description: 'The official documentation for Documenso, the open-source document signing platform.',
+  description: 'The official documentation for VedaSign, the open-source document signing platform.',
   openGraph: {
-    siteName: 'Documenso Docs',
+    siteName: 'VedaSign Docs',
     type: 'website',
   },
   twitter: {
@@ -30,7 +30,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
-        <PlausibleProvider domain="documenso.com">
+        <PlausibleProvider domain="vedasign.uk">
           <RootProvider>{children}</RootProvider>
         </PlausibleProvider>
       </body>
